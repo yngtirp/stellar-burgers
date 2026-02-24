@@ -7,10 +7,10 @@ import { FC, useEffect } from 'react';
 import {
   getIngredientsSelector,
   getLoadingSelector,
-  getErrorSelector
-} from '../../services/slices/burgerIngridiensSlice';
+  getErrorSelector,
+  getIngredients
+} from '../../services/slices/IngredientsSlice';
 import { useDispatch } from '../../services/store';
-import { getIngredients } from '../../services/slices/burgerIngridiensSlice';
 
 export const ConstructorPage: FC = () => {
   const ingredients = useSelector(getIngredientsSelector);

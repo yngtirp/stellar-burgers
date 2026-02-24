@@ -11,11 +11,25 @@ import {
 } from '@pages';
 import '../../index.css';
 import { Modal, OrderInfo, IngredientDetails } from '@components';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useNavigate,
+  useMatch
+} from 'react-router-dom';
 import { Layout } from './Layout';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from '../../services/store';
+import { getIngredients } from '../../services/slices/IngredientsSlice';
+import { getOrderDetailsSelector } from 'src/services/slices/orderDetailsSlice';
 
-const App = () => (
-  <BrowserRouter>
+const App = () => {
+  const profileMatch = useMatch('/profile/orders/:number')?.params.number;
+  const feedMatch = useMatch('/feed/:number')?.params.number;
+  const orderNumber = profileMatch || feedMatch;
+  return (
     <Routes>
       <Route path='/' element={<Layout />}>
         <Route index element={<ConstructorPage />} />
@@ -30,7 +44,7 @@ const App = () => (
         <Route
           path='/feed/:number'
           element={
-            <Modal title='' onClose={() => {}}>
+            <Modal title={`#${orderNumber && orderNumber.padStart(6, '0')}`}>
               <OrderInfo />
             </Modal>
           }
@@ -38,7 +52,7 @@ const App = () => (
         <Route
           path='/ingredients/:id'
           element={
-            <Modal title='' onClose={() => {}}>
+            <Modal title='Детали ингредиента'>
               <IngredientDetails />
             </Modal>
           }
@@ -46,14 +60,13 @@ const App = () => (
         <Route
           path='/profile/orders/:number'
           element={
-            <Modal title='' onClose={() => {}}>
+            <Modal title=''>
               <OrderInfo />
             </Modal>
           }
         />
       </Route>
     </Routes>
-  </BrowserRouter>
-);
-
+  );
+};
 export default App;
