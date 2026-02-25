@@ -15,6 +15,7 @@ export const AppHeaderUI: FC<TAppHeaderUIProps> = ({ userName }) => (
       <div className={styles.menu_part_left}>
         <NavLink
           to={'/'}
+          viewTransition
           className={({ isActive }) =>
             `${styles.link} ${isActive ? styles.link_active : ''}`
           }
@@ -24,6 +25,7 @@ export const AppHeaderUI: FC<TAppHeaderUIProps> = ({ userName }) => (
         </NavLink>
         <NavLink
           to={'/feed'}
+          viewTransition
           className={({ isActive }) =>
             `${styles.link} ${isActive ? styles.link_active : ''}`
           }
@@ -37,6 +39,7 @@ export const AppHeaderUI: FC<TAppHeaderUIProps> = ({ userName }) => (
       </div>
       <div className={styles.link_position_last}>
         <NavLink
+          viewTransition
           to={'/profile'}
           className={({ isActive }) =>
             `${styles.link} ${isActive ? styles.link_active : ''}`

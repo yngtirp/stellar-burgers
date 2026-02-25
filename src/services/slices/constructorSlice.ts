@@ -1,4 +1,4 @@
-import { orderBurgerApi, TNewOrderResponse, TNewOrder } from '@api';
+import { orderBurgerApi, TNewOrderResponse } from '@api';
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { TOrder, TIngredient, TConstructorIngredient } from '@utils-types';
 import { nanoid } from '@reduxjs/toolkit';
