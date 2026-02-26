@@ -1,5 +1,5 @@
 import { setCookie, getCookie } from './cookie';
-import { TIngredient, TOrder, TOrdersData, TUser } from './types';
+import { TIngredient, TOrder, TUser } from './types';
 import { deleteCookie } from '../utils/cookie';
 
 const URL = process.env.BURGER_API_URL;

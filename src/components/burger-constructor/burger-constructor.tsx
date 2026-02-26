@@ -8,11 +8,15 @@ import {
   setNullOrderModalData,
   setOrderRequest
 } from '../../services/slices/constructorSlice';
+import { getUserSelector } from '../../services/slices/authSlice';
 import { useSelector } from '../../services/store';
+import { useNavigate } from 'react-router-dom';
 
 export const BurgerConstructor: FC = () => {
   /** TODO: взять переменные constructorItems, orderRequest и orderModalData из стора */
   const dispatch = useDispatch();
+  const user = useSelector(getUserSelector);
+  const navigate = useNavigate();
 
   const constructorState = useSelector(getConstructorSelector);
   const constructorItems = constructorState.constructorItems;
@@ -20,6 +24,10 @@ export const BurgerConstructor: FC = () => {
   const orderModalData = constructorState.orderModalData;
 
   const onOrderClick = () => {
+    if (!user) {
+      navigate('/login');
+      return;
+    }
     if (!constructorItems.bun || orderRequest) return;
     else {
       const bunId = constructorItems.bun._id;

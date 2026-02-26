@@ -11,19 +11,14 @@ import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { TUser } from '@utils-types';
 
 interface authSliceState {
-  user: TUser;
+  user: TUser | undefined;
   loading: boolean;
   error: string | null;
 }
 
-const initialUserState = {
-  name: '',
-  email: ''
-};
-
 const initialState: authSliceState = {
-  user: initialUserState,
-  loading: false,
+  user: undefined,
+  loading: true,
   error: null
 };
 
@@ -45,7 +40,7 @@ export const authSlice = createSlice({
   reducers: {},
   selectors: {
     getUserSelector: (state) => state.user,
-    getLoadingRegisterSelector: (state) => state.loading
+    getLoadingAuthSelector: (state) => state.loading
   },
   extraReducers: (builder) => {
     builder
@@ -129,9 +124,9 @@ export const authSlice = createSlice({
       .addCase(logoutUserThunk.fulfilled, (state) => {
         state.loading = false;
         state.error = null;
+        state.user = undefined;
       });
   }
 });
 
-export const { getUserSelector, getLoadingRegisterSelector } =
-  authSlice.selectors;
+export const { getUserSelector, getLoadingAuthSelector } = authSlice.selectors;
