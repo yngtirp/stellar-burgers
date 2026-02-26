@@ -5,7 +5,7 @@ import { ordersSlice } from './slices/ordersSlice';
 import { constructorSlice } from './slices/constructorSlice';
 import { ingredientDetailsSlice } from './slices/ingredientDetailsSlice';
 import { orderDetailsSlice } from './slices/orderDetailsSlice';
-import { registerUserSlice } from './slices/registerUserSlice';
+import { authSlice } from './slices/authSlice';
 
 export const rootReducer = combineSlices(
   ingredientsSlice,
@@ -14,5 +14,5 @@ export const rootReducer = combineSlices(
   constructorSlice,
   ingredientDetailsSlice,
   orderDetailsSlice,
-  registerUserSlice
+  authSlice
 );

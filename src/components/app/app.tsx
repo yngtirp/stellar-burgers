@@ -24,8 +24,14 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from '../../services/store';
 import { getIngredients } from '../../services/slices/IngredientsSlice';
 import { getOrderDetailsSelector } from 'src/services/slices/orderDetailsSlice';
+import { getUserThunk } from '../..//services/slices/authSlice';
 
 const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getUserThunk());
+  }, [dispatch, getUserThunk]);
+
   const profileMatch = useMatch('/profile/orders/:number')?.params.number;
   const feedMatch = useMatch('/feed/:number')?.params.number;
   const orderNumber = profileMatch || feedMatch;
