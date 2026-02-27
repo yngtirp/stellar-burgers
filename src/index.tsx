@@ -11,13 +11,11 @@ const container = document.getElementById('root') as HTMLElement;
 const root = ReactDOMClient.createRoot(container!);
 
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <DndProvider backend={HTML5Backend}>
-          <App />
-        </DndProvider>
-      </BrowserRouter>
-    </Provider>
-  </React.StrictMode>
+  <Provider store={store}>
+    <BrowserRouter>
+      <DndProvider backend={HTML5Backend}>
+        <App />
+      </DndProvider>
+    </BrowserRouter>
+  </Provider>
 );
