@@ -4,8 +4,8 @@ import {
   getUserThunk,
   getUserSelector,
   updateUserThunk
-} from '../..//services/slices/authSlice';
-import { useDispatch, useSelector } from '../..//services/store';
+} from '../../services/slices/authSlice';
+import { useDispatch, useSelector } from '../../services/store';
 
 export const Profile: FC = () => {
   /** TODO: взять переменную из стора */

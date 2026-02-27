@@ -2,7 +2,8 @@ import React, { FC, memo } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './burger-ingredient.module.css';
 import { changeIngredient } from '../../../services/slices/ingredientDetailsSlice';
-import { useSelector, useDispatch } from '../../../services/store';
+import { useDispatch } from '../../../services/store';
+import { useDrag } from 'react-dnd';
 
 import {
   Counter,
@@ -15,6 +16,13 @@ import { TBurgerIngredientUIProps } from './type';
 export const BurgerIngredientUI: FC<TBurgerIngredientUIProps> = memo(
   ({ ingredient, count, handleAdd, locationState }) => {
     const dispatch = useDispatch();
+    const [, dragRef] = useDrag(
+      () => ({
+        type: 'ingredient',
+        item: ingredient
+      }),
+      [ingredient]
+    );
 
     const hadleClick = () => {
       dispatch(changeIngredient(ingredient));
@@ -30,7 +38,12 @@ export const BurgerIngredientUI: FC<TBurgerIngredientUIProps> = memo(
           state={locationState}
         >
           {count && <Counter count={count} />}
-          <img className={styles.img} src={image} alt='картинка ингредиента.' />
+          <img
+            className={styles.img}
+            src={image}
+            alt='картинка ингредиента.'
+            ref={dragRef}
+          />
           <div className={`${styles.cost} mt-2 mb-2`}>
             <p className='text text_type_digits-default mr-2'>{price}</p>
             <CurrencyIcon type='primary' />

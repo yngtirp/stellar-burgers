@@ -15,10 +15,7 @@ import { Routes, Route, useMatch } from 'react-router-dom';
 import { Layout } from './Layout';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from '../../services/store';
-import {
-  getUserThunk,
-  getUserSelector
-} from '../..//services/slices/authSlice';
+import { getUserThunk, getUserSelector } from '../../services/slices/authSlice';
 import { ProtectedRoute } from '../protected-route/protected-route';
 
 const App = () => {

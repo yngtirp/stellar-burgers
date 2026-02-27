@@ -7,7 +7,7 @@ import {
   getOrderDetailsSelector,
   getLoadingOrderDetailsSelector
 } from '../../services/slices/orderDetailsSlice';
-import { getIngredientsSelector } from '../..//services/slices/IngredientsSlice';
+import { getIngredientsSelector } from '../../services/slices/IngredientsSlice';
 import { useSelector, useDispatch } from '../../services/store';
 import { useParams } from 'react-router-dom';
 
