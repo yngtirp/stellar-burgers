@@ -5,9 +5,14 @@ import {
   getOrdersSelector
 } from '../../services/slices/ordersSlice';
 import { useDispatch, useSelector } from '../../services/store';
+import { getIngredients } from '../../services/slices/IngredientsSlice';
 
 export const ProfileOrders: FC = () => {
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getIngredients());
+  }, [dispatch, getIngredients]);
+
   useEffect(() => {
     dispatch(getOrders());
   }, [dispatch, getOrders]);

@@ -6,27 +6,30 @@ import { ModalUI } from '@ui';
 import { useNavigate } from 'react-router-dom';
 const modalRoot = document.getElementById('modals');
 
-export const Modal: FC<TModalProps> = memo(({ title, onClose, children }) => {
-  const navigate = useNavigate();
-  const onModalClose = () => {
-    navigate(-1);
-  };
+export const Modal: FC<TModalProps> = memo(
+  ({ title, onClose, children, pathOnClose }) => {
+    const navigate = useNavigate();
 
-  useEffect(() => {
-    const handleEsc = (e: KeyboardEvent) => {
-      e.key === 'Escape' && onClose ? onClose() : onModalClose();
+    const onModalClose = () => {
+      pathOnClose ? navigate(pathOnClose) : navigate(-1);
     };
 
-    document.addEventListener('keydown', handleEsc);
-    return () => {
-      document.removeEventListener('keydown', handleEsc);
-    };
-  }, [onClose]);
+    useEffect(() => {
+      const handleEsc = (e: KeyboardEvent) => {
+        e.key === 'Escape' && onClose ? onClose() : onModalClose();
+      };
 
-  return ReactDOM.createPortal(
-    <ModalUI title={title} onClose={onClose ? onClose : onModalClose}>
-      {children}
-    </ModalUI>,
-    modalRoot as HTMLDivElement
-  );
-});
+      document.addEventListener('keydown', handleEsc);
+      return () => {
+        document.removeEventListener('keydown', handleEsc);
+      };
+    }, [onClose]);
+
+    return ReactDOM.createPortal(
+      <ModalUI title={title} onClose={onClose ? onClose : onModalClose}>
+        {children}
+      </ModalUI>,
+      modalRoot as HTMLDivElement
+    );
+  }
+);

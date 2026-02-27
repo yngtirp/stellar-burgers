@@ -1,8 +1,6 @@
 import React, { FC, memo } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './burger-ingredient.module.css';
-import { changeIngredient } from '../../../services/slices/ingredientDetailsSlice';
-import { useDispatch } from '../../../services/store';
 import { useDrag } from 'react-dnd';
 
 import {
@@ -15,7 +13,6 @@ import { TBurgerIngredientUIProps } from './type';
 
 export const BurgerIngredientUI: FC<TBurgerIngredientUIProps> = memo(
   ({ ingredient, count, handleAdd, locationState }) => {
-    const dispatch = useDispatch();
     const [, dragRef] = useDrag(
       () => ({
         type: 'ingredient',
@@ -24,14 +21,10 @@ export const BurgerIngredientUI: FC<TBurgerIngredientUIProps> = memo(
       [ingredient]
     );
 
-    const hadleClick = () => {
-      dispatch(changeIngredient(ingredient));
-    };
-
     const { image, price, name, _id } = ingredient;
 
     return (
-      <li className={styles.container} onClick={hadleClick}>
+      <li className={styles.container}>
         <Link
           className={styles.article}
           to={`/ingredients/${_id}`}
