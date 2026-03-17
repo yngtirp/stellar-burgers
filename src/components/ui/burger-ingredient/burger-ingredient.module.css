@@ -28,3 +28,24 @@
   width: 260px;
   justify-content: center;
 }
+
+img[draggable="true"] {
+  background: transparent;
+}
+
+*:active > .container,
+.container:active {
+  background: transparent;
+  box-shadow: none;
+}
+
+.container:active,
+.container:active * {
+  background: transparent;
+  box-shadow: none;
+}
+
+.container:active .img {
+  opacity: 0.8;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+}
