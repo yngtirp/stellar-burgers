@@ -15,7 +15,7 @@ import { Routes, Route, useMatch, useLocation } from 'react-router-dom';
 import { Layout } from './Layout';
 import { useEffect } from 'react';
 import { useDispatch } from '../../services/store';
-import { getUserThunk } from '../../services/slices/authSlice';
+import { getUserThunk } from '../../services/slices/auth/authSlice';
 import { ProtectedRoute } from '../protected-route/protected-route';
 
 const App = () => {

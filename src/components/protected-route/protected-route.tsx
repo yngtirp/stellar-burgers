@@ -3,7 +3,7 @@ import { Navigate, Outlet } from 'react-router-dom';
 import {
   getLoadingAuthSelector,
   getUserSelector
-} from '../../services/slices/authSlice';
+} from '../../services/slices/auth/authSlice';
 import { useSelector } from '../../services/store';
 import { Preloader } from '@ui';
 

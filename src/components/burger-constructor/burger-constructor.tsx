@@ -7,8 +7,8 @@ import {
   postOrder,
   setNullOrderModalData,
   setOrderRequest
-} from '../../services/slices/constructorSlice';
-import { getUserSelector } from '../../services/slices/authSlice';
+} from '../../services/slices/constructor/constructorSlice';
+import { getUserSelector } from '../../services/slices/auth/authSlice';
 import { useSelector } from '../../services/store';
 import { useNavigate } from 'react-router-dom';
 

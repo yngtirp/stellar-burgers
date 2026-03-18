@@ -3,9 +3,9 @@ import { FC, useEffect } from 'react';
 import {
   getOrders,
   getOrdersSelector
-} from '../../services/slices/ordersSlice';
+} from '../../services/slices/orders/ordersSlice';
 import { useDispatch, useSelector } from '../../services/store';
-import { getIngredients } from '../../services/slices/IngredientsSlice';
+import { getIngredients } from '../../services/slices/ingredients/IngredientsSlice';
 
 export const ProfileOrders: FC = () => {
   const dispatch = useDispatch();

@@ -9,7 +9,7 @@ import {
   getLoadingSelector,
   getErrorSelector,
   getIngredients
-} from '../../services/slices/IngredientsSlice';
+} from '../../services/slices/ingredients/IngredientsSlice';
 import { useDispatch } from '../../services/store';
 
 export const ConstructorPage: FC = () => {
