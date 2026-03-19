@@ -16,7 +16,7 @@ interface authSliceState {
   error: string | null;
 }
 
-const initialState: authSliceState = {
+export const initialState: authSliceState = {
   user: undefined,
   loading: true,
   error: null
