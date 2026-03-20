@@ -1,4 +1,4 @@
-import { getOrdersApi, TFeedsResponse } from '@api';
+import { getOrdersApi } from '@api';
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { TOrder } from '@utils-types';
 
@@ -8,7 +8,7 @@ interface TOrdersSliceState {
   orders: TOrder[];
 }
 
-const initialState: TOrdersSliceState = {
+export const initialState: TOrdersSliceState = {
   loading: false,
   error: null,
   orders: []

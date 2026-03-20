@@ -2,13 +2,14 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TOrder } from '@utils-types';
 import { getOrderByNumberApi } from '@api';
 import { TOrderResponse } from '@api';
+
 interface orderDetailsState {
   currentOrder: TOrder | null;
   loading: boolean;
   error: string | null;
 }
 
-const initialState: orderDetailsState = {
+export const initialState: orderDetailsState = {
   currentOrder: null,
   loading: false,
   error: null
