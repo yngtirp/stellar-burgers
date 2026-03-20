@@ -7,9 +7,9 @@ import {
   getFeed,
   getOrdersSelector,
   getLoadingSelector
-} from '../../services/slices/feedSlice';
+} from '../../services/slices/feed/feedSlice';
 import { useSelector } from '../../services/store';
-import { getIngredients } from '../../services/slices/IngredientsSlice';
+import { getIngredients } from '../../services/slices/ingredients/IngredientsSlice';
 
 export const Feed: FC = () => {
   const dispatch = useDispatch();

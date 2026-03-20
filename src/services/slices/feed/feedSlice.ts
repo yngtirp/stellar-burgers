@@ -10,7 +10,7 @@ interface TFeedSliceState {
   totalToday: number;
 }
 
-const initialState: TFeedSliceState = {
+export const initialState: TFeedSliceState = {
   loading: false,
   error: null,
   orders: [],
@@ -61,3 +61,5 @@ export const {
   getTotalToday,
   getLoadingSelector
 } = feedSlice.selectors;
+
+export {};

@@ -13,7 +13,7 @@ interface TConstructorSliceState {
   error: string | null;
 }
 
-const initialState: TConstructorSliceState = {
+export const initialState: TConstructorSliceState = {
   orderModalData: null,
   constructorItems: {
     bun: null,

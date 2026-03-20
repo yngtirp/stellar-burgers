@@ -6,7 +6,7 @@ import {
   getOrdersSelector,
   getTotal,
   getTotalToday
-} from '../../services/slices/feedSlice';
+} from '../../services/slices/feed/feedSlice';
 import { useSelector } from 'react-redux';
 
 const getOrders = (orders: TOrder[], status: string): number[] =>
